@@ -1,3 +1,88 @@
+@keyframes spin{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+@keyframes semispin{
+    0%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes button-move-right{
+    0% {
+        left: 10%;
+    }
+    50% {
+        left: calc(100% - 60px);
+    }
+    100% {
+        left: 10%;
+    }
+}
+@keyframes button-move-left{
+    0% {
+        right: 10%;
+    }
+    50% {
+        right: calc(100% - 60px);
+    }
+    100% {
+        right: 10%;
+    }
+}
+@keyframes top-button-move-xyz{
+    0% {
+        left: 10%;
+        top: -10px;
+    }
+    25% {
+        left: 100%;
+        top: -10px;
+    }
+    50% {
+        left: 100%;
+        top: 100%;
+    }
+    75% {
+        left: 0;
+        top: 100%;
+    }
+    100% {
+        left: -10px;
+        top: -10px;
+    }
+}
+@keyframes bottom-button-move-xyz{
+    0% {
+        left: -10px;
+        top: 100%;
+    }
+    25% {
+        left: -10px;
+        top: -10px;
+    }
+    50% {
+        left: 100%;
+        top: -10px;
+    }
+    75% {
+        left: 100%;
+        top: 100%;
+    }
+    100% {
+        left: 10%;
+        top: 100%;
+    }
+}
 .ex-1-square {
     width: 100px;
     height: 100px;
@@ -71,12 +156,25 @@
 .ex-9-img {
     margin: 50px 100px;
     width: 400px;
+    transition: 2s;
+}
+.ex-9-img:hover {
+    border-radius: 50%;
+    filter: grayscale(100%);
+    transform: scale(140%);
 }
 .ex-10-icon {
     font-size: 60px;
+    transition: 2s;
+}
+.ex-10-icon:hover {
+    animation: spin linear 2s infinite
 }
 .ex-11-icon {
     font-size: 60px;
+}
+.ex-11-icon:hover {
+    animation: semispin linear 2s infinite;
 }
 .ex-12-button, .ex-13-button {
     position: relative;
@@ -106,4 +204,16 @@
     background: #f5f5f5;
     width: 60px;
     height: 20px;
+}
+.ex-12-button:hover .ex-12-top-white {
+    animation: button-move-right linear 2s infinite;
+}
+.ex-12-button:hover .ex-12-bottom-white {
+    animation: button-move-left linear 2s infinite;
+}
+.ex-13-button:hover .ex-13-top-white {
+    animation: top-button-move-xyz linear 2s infinite;
+}
+.ex-13-button:hover .ex-13-bottom-white {
+    animation: bottom-button-move-xyz linear 2s infinite;
 }
